@@ -59,9 +59,8 @@
 
   /* ---------- NAV ---------- */
   .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;
-    background:rgba(33,30,26,.92);backdrop-filter:blur(10px);border-bottom:2px solid transparent;
-    transform:translateY(-120%);opacity:0;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
-  body.nav-show .nav{transform:none;opacity:1;border-bottom-color:var(--amber)}
+    background:rgba(33,30,26,.92);backdrop-filter:blur(10px);border-bottom:2px solid transparent;transition:border-color .4s,box-shadow .4s,background .4s}
+  body.nav-show .nav{border-bottom-color:var(--amber);box-shadow:0 8px 24px -16px rgba(0,0,0,.85)}
   .brand{display:flex;align-items:center;gap:10px;color:#f4efe7}
   .brand .mk{width:34px;height:34px;border-radius:7px;background:var(--amber);display:grid;place-items:center;color:var(--char);font-family:"Archivo";font-weight:900;font-size:1.25rem}
   .brand b{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
@@ -175,7 +174,7 @@
   .visit .row span{color:var(--ink2)}
   .visit .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
   .map{border-radius:14px;overflow:hidden;min-height:380px;border:1px solid var(--line);box-shadow:0 20px 40px -28px rgba(0,0,0,.4)}
-  .map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.15) saturate(1.05)}
+  .map iframe{width:100%;height:100%;min-height:380px;border:0}
 
   .cta-band{background:var(--char);color:#f4efe7;text-align:center}
   .cta-band h2{font-size:clamp(2.1rem,5.2vw,3.8rem);color:#f7f2ea}
@@ -188,6 +187,20 @@
   .foot small{color:#8d8475;font-family:"Space Mono",monospace;font-size:.76rem}
   .demo-tag{position:fixed;left:14px;bottom:14px;z-index:80;background:rgba(33,30,26,.94);border:1px solid rgba(232,147,36,.4);color:var(--amber);font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.06em;padding:7px 12px;border-radius:999px}
 
+  /* keep hero text from cramming on phones */
+  @media(max-width:560px){
+    .nav{padding:10px 16px}
+    .brand .mk{width:30px;height:30px;font-size:1.05rem}
+    .brand b{font-size:.84rem}
+    .brand small{font-size:.5rem}
+    .nav .btn{padding:9px 13px;font-size:.76rem}
+    .cap{padding:0 16px;gap:.32em}
+    .cap-title{font-size:clamp(2rem,8.4vw,2.7rem);letter-spacing:-.01em}
+    .cap-line{font-size:clamp(1.6rem,6.6vw,2.3rem)}
+    .cap-sub{font-size:.76rem;letter-spacing:.05em}
+    .cap-ey{font-size:.7rem;letter-spacing:.16em}
+    .cap-note{font-size:.82rem}
+  }
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}.startcue .wheel::after{animation:none}}
 </style>
 </head>
@@ -212,7 +225,7 @@
     <div class="stage" id="stage">
       <canvas id="frameCanvas"></canvas>
       <video id="heroVideo" src="hero.mp4" poster="poster.jpg" muted loop playsinline preload="none"></video>
-      <img id="heroPoster" src="poster.jpg" alt="Craftsman sanding a wood board by hand" />
+      <img id="heroPoster" src="poster.jpg" alt="Camera gliding through a beautifully remodeled home interior" />
       <div class="stage-overlay"></div>
 
       <div class="caps">
@@ -402,7 +415,7 @@
           </div>
         </div>
         <div class="map reveal d1">
-          <iframe title="Neighborhood Handyman service area — Twin Cities metro" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-93.30%2C44.86%2C-92.92%2C45.10&layer=mapnik&marker=45.02%2C-93.09"></iframe>
+          <iframe title="Neighborhood Handyman service area — Twin Cities metro" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d90000!2d-93.09!3d44.9537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f10!5e0!3m2!1sen!2sus!4v1718900000000"></iframe>
         </div>
       </div>
     </section>
@@ -434,11 +447,12 @@
 <script>
 (function(){
   "use strict";
-  var FRAME_COUNT = 143;
-  var framePath = function(n){ return "frames/f" + String(n).padStart(3, "0") + ".jpg"; };
+  var FRAME_COUNT = 130;
+  var FRAME_DIR = (window.innerWidth < 768) ? "frames-sm" : "frames";   // lighter set on phones
+  var framePath = function(n){ return FRAME_DIR + "/f" + String(n).padStart(3, "0") + ".jpg"; };
 
   var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var canScrub = !reduce && window.matchMedia("(min-width:768px) and (pointer:fine)").matches;
+  var canScrub = !reduce;   // scrub on desktop AND mobile; only reduced-motion gets the static poster
 
   var section = document.getElementById("scrollHero");
   var stage   = document.getElementById("stage");
@@ -454,11 +468,9 @@
   function band(p,a,b){ var v=(p-a)/(b-a); return v<0?0:(v>1?1:v); }
   function seg(p, inS,inE, outS,outE){ return Math.min(band(p,inS,inE), 1-band(p,outS,outE)); }
 
-  if(!canScrub){
-    document.body.classList.add("fallback");
+  if(!canScrub){            // reduced-motion only — clean static poster, no scrub
+    document.body.classList.add("fallback", "show-poster");
     cap1.style.opacity = 1;
-    if(reduce){ document.body.classList.add("show-poster"); }
-    else { document.body.classList.add("show-video"); video.play().catch(function(){}); }
     if(loadNote) loadNote.style.display = "none";
     if(startCue) startCue.style.opacity = 0;
     initReveals(); initCounts(); initNav();
