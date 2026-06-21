@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Neighborhood Handyman — Trusted remodeling & repairs in the Twin Cities</title>
+<meta name="description" content="Neighborhood Handyman LLC — Jeff and crew handle kitchen, bath & basement remodels, flooring, tile, trim, woodworking and home repairs across the St. Paul & Maple Grove metro. 101 neighbor recommendations. No job is too small." />
+<meta property="og:title" content="Neighborhood Handyman LLC — Twin Cities" />
+<meta property="og:description" content="Remodeling, flooring, tile, trim & repairs done on-time and on-budget. 101 neighbor recommendations across the Twin Cities metro." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="poster.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="poster.jpg" />
+<link rel="preload" as="image" href="frames/f001.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "Neighborhood Handyman LLC",
+  "description": "Family-run handyman and remodeling service covering kitchens, baths, basements, flooring, tile, trim and home repairs across the Twin Cities metro.",
+  "telephone": "+1-763-294-8991",
+  "areaServed": "Twin Cities Metro, Minnesota",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Saint Paul",
+    "addressRegion": "MN",
+    "postalCode": "55109",
+    "addressCountry": "US"
+  },
+  "image": "poster.jpg"
+}
+</script>
+<style>
+  :root{
+    --paper:#f4efe7;--paper2:#e9e1d3;--ink:#1b1814;--ink2:#4d4439;
+    --wood:#b07a45;--wood-dk:#8a5c30;--char:#211e1a;--char2:#2d2925;
+    --amber:#e89324;--amber-dk:#c8771a;--kraft:#d9c3a5;--blue:#3a6ea5;
+    --card:#fffdf8;--line:rgba(27,24,20,.14);--maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:"Archivo",system-ui,sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.02em;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber-dk);font-weight:700}
+
+  /* tape-measure ruler motif */
+  .ruler{height:30px;width:100%;background:var(--amber);position:relative;border-top:2px solid var(--char);border-bottom:2px solid var(--char);
+    background-image:
+      repeating-linear-gradient(90deg, var(--char) 0 1.5px, transparent 1.5px 25px),
+      repeating-linear-gradient(90deg, var(--char) 0 2px, transparent 2px 125px);
+    background-size:25px 11px, 125px 18px;
+    background-position:bottom left, bottom left;
+    background-repeat:repeat-x}
+
+  /* ---------- NAV ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;
+    background:rgba(33,30,26,.92);backdrop-filter:blur(10px);border-bottom:2px solid transparent;
+    transform:translateY(-120%);opacity:0;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+  body.nav-show .nav{transform:none;opacity:1;border-bottom-color:var(--amber)}
+  .brand{display:flex;align-items:center;gap:10px;color:#f4efe7}
+  .brand .mk{width:34px;height:34px;border-radius:7px;background:var(--amber);display:grid;place-items:center;color:var(--char);font-family:"Archivo";font-weight:900;font-size:1.25rem}
+  .brand b{font-family:"Archivo";font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
+  .brand small{display:block;font-family:"Space Mono",monospace;font-weight:400;font-size:.58rem;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;margin-top:2px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:.92rem;color:#cfc6b8;font-weight:600;transition:color .25s}
+  .nav-links a:hover{color:var(--amber)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;font-weight:700;font-size:.92rem;font-family:"Archivo";text-transform:uppercase;letter-spacing:.02em;
+    background:var(--amber);color:var(--char);border:2px solid var(--amber);transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(232,147,36,.7);background:var(--amber-dk);border-color:var(--amber-dk)}
+  .btn.ghost{background:transparent;color:#f4efe7;border-color:rgba(244,239,231,.5)}
+  .btn.ghost:hover{border-color:var(--amber);color:var(--amber);box-shadow:none;background:transparent}
+  @media(max-width:780px){.nav-links a:not(.btn){display:none}}
+
+  /* ---------- SCROLL-SCRUB HERO ---------- */
+  .scrollhero{position:relative;height:340vh;background:#171410}
+  body.fallback .scrollhero{height:100vh}
+  .stage{position:sticky;top:0;height:100vh;width:100%;overflow:hidden}
+  body.fallback .stage{position:relative}
+  #frameCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  #heroVideo,#heroPoster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  body.fallback #frameCanvas{display:none}
+  body.show-video #heroVideo{display:block}
+  body.show-poster #heroPoster{display:block}
+  .stage-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(23,20,16,.5),rgba(23,20,16,.25) 38%,rgba(23,20,16,.78))}
+  .caps{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .cap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.22em;opacity:0;will-change:transform,opacity;padding:0 22px}
+  .cap-ey{font-family:"Space Mono",monospace;font-size:clamp(.8rem,2.2vw,1rem);letter-spacing:.28em;text-transform:uppercase;color:var(--amber)}
+  .cap-title{font-family:"Archivo";font-weight:900;font-size:clamp(2.8rem,11vw,9rem);color:#f7f2ea;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;text-shadow:0 10px 50px rgba(0,0,0,.6)}
+  .cap-sub{font-size:1.05rem;color:#e7ddcd;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .cap-line{font-family:"Archivo";font-weight:800;font-size:clamp(2.1rem,7.4vw,5.4rem);color:#f7f2ea;line-height:1.04;text-transform:uppercase;text-shadow:0 8px 50px rgba(0,0,0,.6)}
+  .cap-note{margin-top:.5em;font-family:"Space Mono",monospace;color:var(--amber);font-size:.95rem;letter-spacing:.06em}
+  .startcue{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);z-index:4;color:#f4efe7;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+  .startcue .wheel{width:24px;height:38px;border:2px solid #f4efe7;border-radius:14px;position:relative}
+  .startcue .wheel::after{content:"";position:absolute;top:7px;left:50%;width:3px;height:7px;background:#f4efe7;border-radius:2px;transform:translateX(-50%);animation:dip 1.5s infinite}
+  @keyframes dip{0%{opacity:0;transform:translate(-50%,-3px)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+  .scrubbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.16);z-index:5}
+  .scrubbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--amber),var(--wood));transition:width .08s linear}
+  .loadnote{position:absolute;left:50%;top:58%;transform:translateX(-50%);z-index:6;color:#f4efe7;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+
+  /* ---------- SECTIONS ---------- */
+  section.block{position:relative;padding:clamp(64px,10vw,128px) 0}
+  .lift{margin-top:-44px;background:linear-gradient(180deg,#fff,var(--paper));border-radius:34px 34px 0 0;position:relative;z-index:10;box-shadow:0 -36px 70px -34px rgba(0,0,0,.6)}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+  .intro{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .intro h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:14px 0 22px}
+  .intro p{color:var(--ink2);font-size:1.08rem;margin-bottom:18px;max-width:48ch}
+  .intro .photo{border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);position:relative}
+  .intro .photo img{width:100%;height:540px;object-fit:cover;transition:transform 1.2s ease}
+  .intro .photo:hover img{transform:scale(1.05)}
+  .intro .tag{position:absolute;left:0;bottom:18px;background:var(--amber);color:var(--char);font-family:"Archivo";font-weight:800;font-size:.78rem;letter-spacing:.04em;padding:9px 16px;text-transform:uppercase;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+  @media(max-width:840px){.intro{grid-template-columns:1fr;gap:34px}.intro .photo img{height:380px}}
+
+  .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .stat{flex:1;min-width:130px;background:var(--char);color:#f4efe7;border-radius:12px;padding:18px 20px}
+  .stat b{font-family:"Archivo";font-weight:900;font-size:2.1rem;color:var(--amber);display:block;line-height:1}
+  .stat small{color:#cfc6b8;font-size:.82rem;font-weight:500;font-family:"Space Mono",monospace;letter-spacing:.02em}
+
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 50px}
+  .sec-head h2{font-size:clamp(2rem,4.8vw,3.3rem);margin-top:8px}
+  .sec-head p{color:var(--ink2);margin-top:14px}
+
+  /* SERVICES */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.cards{grid-template-columns:1fr}}
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease}
+  .scard:hover{transform:translateY(-8px);box-shadow:0 26px 56px -28px rgba(0,0,0,.45)}
+  .scard .ph{height:210px;overflow:hidden;position:relative}
+  .scard .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+  .scard:hover .ph img{transform:scale(1.08)}
+  .scard .num{position:absolute;top:12px;left:12px;font-family:"Space Mono",monospace;font-size:.72rem;font-weight:700;color:var(--char);background:var(--amber);padding:4px 9px;border-radius:6px}
+  .scard .body{padding:22px}
+  .scard h3{font-size:1.25rem;margin-bottom:8px}
+  .scard p{color:var(--ink2);font-size:.96rem}
+  .scard ul{list-style:none;margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+  .scard li{font-family:"Space Mono",monospace;font-size:.72rem;color:var(--wood-dk);background:var(--paper2);padding:4px 8px;border-radius:5px}
+
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+  .gallery a{overflow:hidden;border-radius:12px;box-shadow:0 14px 30px -20px rgba(0,0,0,.4)}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
+  .gallery a:hover img{transform:scale(1.1)}
+  .gallery .tall{grid-row:span 2}
+  .gallery .wide{grid-column:span 2}
+  @media(max-width:860px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gallery .wide{grid-column:span 2}}
+
+  /* PROCESS / steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:22px}
+  .step b{font-family:"Space Mono",monospace;color:var(--amber-dk);font-size:.8rem;display:block;margin-bottom:8px}
+  .step h3{font-size:1.1rem;margin-bottom:6px}
+  .step p{color:var(--ink2);font-size:.92rem}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:860px){.quotes{grid-template-columns:1fr}}
+  .quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 16px 36px -28px rgba(0,0,0,.4)}
+  .quote p{font-size:1.08rem;color:var(--ink);margin-bottom:18px;line-height:1.6}
+  .quote .who{display:flex;align-items:center;gap:12px}
+  .quote .who .dot{width:40px;height:40px;border-radius:8px;background:var(--char);display:grid;place-items:center;color:var(--amber);font-family:"Archivo";font-weight:900}
+  .quote .who small{color:var(--ink2);font-family:"Space Mono",monospace;font-size:.74rem}
+  .stars{color:var(--amber);letter-spacing:3px;margin-bottom:12px;font-size:1.05rem}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:stretch}
+  @media(max-width:840px){.visit{grid-template-columns:1fr}}
+  .visit h2{font-size:clamp(2rem,4.6vw,3rem);margin:8px 0 18px}
+  .visit .row{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .visit .row b{min-width:104px;color:var(--amber-dk);font-weight:700;font-family:"Space Mono",monospace;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase}
+  .visit .row span{color:var(--ink2)}
+  .visit .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .map{border-radius:14px;overflow:hidden;min-height:380px;border:1px solid var(--line);box-shadow:0 20px 40px -28px rgba(0,0,0,.4)}
+  .map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.15) saturate(1.05)}
+
+  .cta-band{background:var(--char);color:#f4efe7;text-align:center}
+  .cta-band h2{font-size:clamp(2.1rem,5.2vw,3.8rem);color:#f7f2ea}
+  .cta-band .eyebrow{color:var(--amber)}
+  .cta-band p{max-width:48ch;margin:14px auto 26px;color:#cfc6b8}
+
+  footer{background:#15120e;color:#cfc6b8;padding:44px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot a{color:#cfc6b8}.foot a:hover{color:var(--amber)}
+  .foot small{color:#8d8475;font-family:"Space Mono",monospace;font-size:.76rem}
+  .demo-tag{position:fixed;left:14px;bottom:14px;z-index:80;background:rgba(33,30,26,.94);border:1px solid rgba(232,147,36,.4);color:var(--amber);font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.06em;padding:7px 12px;border-radius:999px}
+
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}.startcue .wheel::after{animation:none}}
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="brand">
+      <span class="mk">N</span>
+      <div><b>Neighborhood Handyman</b><small>St. Paul · Maple Grove · Metro</small></div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="tel:+17632948991">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO: scroll scrubs real craftsmanship, frame by frame -->
+  <section class="scrollhero" id="scrollHero">
+    <div class="stage" id="stage">
+      <canvas id="frameCanvas"></canvas>
+      <video id="heroVideo" src="hero.mp4" poster="poster.jpg" muted loop playsinline preload="none"></video>
+      <img id="heroPoster" src="poster.jpg" alt="Craftsman sanding a wood board by hand" />
+      <div class="stage-overlay"></div>
+
+      <div class="caps">
+        <div class="cap" id="cap1">
+          <p class="cap-ey">Twin Cities &middot; family-run</p>
+          <h1 class="cap-title">Neighborhood<br>Handyman</h1>
+          <p class="cap-sub">Remodeling &amp; repairs done right</p>
+        </div>
+        <div class="cap" id="cap2"><h2 class="cap-line">Measured twice.</h2></div>
+        <div class="cap" id="cap3"><h2 class="cap-line">Built by hand.</h2></div>
+        <div class="cap" id="cap4">
+          <h2 class="cap-line">No job is<br>too small.</h2>
+          <p class="cap-note">Let&rsquo;s build it ↓</p>
+        </div>
+      </div>
+
+      <div class="startcue" id="startCue"><span class="wheel"></span>Scroll to begin</div>
+      <div class="loadnote" id="loadNote">Squaring up · 0%</div>
+      <div class="scrubbar"><i id="scrubFill"></i></div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="block lift" id="about">
+      <div class="wrap intro">
+        <div>
+          <p class="eyebrow reveal">Meet your handyman</p>
+          <h2 class="reveal d1">One trusted crew for every room in the house.</h2>
+          <p class="reveal d2">Neighborhood Handyman is Jeff&rsquo;s family-run shop, and he&rsquo;s built a name across the east metro the old-fashioned way — by showing up on time, charging a fair price, and leaving the place better than he found it. From a single squeaky door to a full kitchen, the work gets the same care.</p>
+          <p class="reveal d3">Kitchens, baths, basements, floors, tile, trim and woodwork — all handled by one crew who treats your home like their own. That&rsquo;s why 101 neighbors have recommended him by name.</p>
+          <div class="stats reveal d3">
+            <div class="stat"><b data-count="101">0</b><small>neighbor recommendations</small></div>
+            <div class="stat"><b>10+</b><small>trades under one roof</small></div>
+            <div class="stat"><b>1</b><small>crew, start to finish</small></div>
+          </div>
+        </div>
+        <div class="photo reveal d2">
+          <img src="img/h7.jpg" alt="Craftsman measuring and marking a wood board with a tape measure and pencil" loading="lazy" />
+          <span class="tag">Measure twice, cut once</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ruler" aria-hidden="true"></div>
+
+    <!-- SERVICES -->
+    <section class="block" id="services">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow reveal">What we do</p>
+          <h2 class="reveal d1">From quick fixes to full remodels</h2>
+          <p class="reveal d2">If it&rsquo;s in your home, chances are we handle it. Here&rsquo;s where most jobs land.</p>
+        </div>
+        <div class="cards">
+          <article class="scard reveal d1">
+            <div class="ph"><span class="num">01</span><img src="img/h2.jpg" alt="Newly remodeled white kitchen with island and hardwood floors" loading="lazy" /></div>
+            <div class="body">
+              <h3>Kitchen Remodels</h3>
+              <p>Cabinets, counters, backsplash and built-ins — a full refresh or a focused update, managed end to end.</p>
+              <ul><li>cabinets</li><li>countertops</li><li>backsplash</li></ul>
+            </div>
+          </article>
+          <article class="scard reveal d2">
+            <div class="ph"><span class="num">02</span><img src="img/h9.jpg" alt="Tiled walk-in shower with glass doors" loading="lazy" /></div>
+            <div class="body">
+              <h3>Bath &amp; Tile</h3>
+              <p>Full bathroom remodels, tub and shower surrounds, and clean, level tile work that lasts.</p>
+              <ul><li>bath remodel</li><li>tile install</li><li>vanities</li></ul>
+            </div>
+          </article>
+          <article class="scard reveal d3">
+            <div class="ph"><span class="num">03</span><img src="img/h1.jpg" alt="Room mid-renovation with fresh tile band and tools" loading="lazy" /></div>
+            <div class="body">
+              <h3>Basements &amp; Build-Outs</h3>
+              <p>Finish that basement or reconfigure a space — framing, drywall, flooring and the finishing touches.</p>
+              <ul><li>framing</li><li>drywall</li><li>finishing</li></ul>
+            </div>
+          </article>
+          <article class="scard reveal d1">
+            <div class="ph"><span class="num">04</span><img src="img/h10.jpg" alt="Modern flooring with herringbone pattern" loading="lazy" /></div>
+            <div class="body">
+              <h3>Flooring</h3>
+              <p>Hardwood, laminate and tile floors laid tight and true, room by room or whole-house.</p>
+              <ul><li>hardwood</li><li>laminate</li><li>tile floor</li></ul>
+            </div>
+          </article>
+          <article class="scard reveal d2">
+            <div class="ph"><span class="num">05</span><img src="img/h5.jpg" alt="Custom wood cabinetry and trim in a finished kitchen" loading="lazy" /></div>
+            <div class="body">
+              <h3>Trim &amp; Woodwork</h3>
+              <p>Door and window trim, custom built-ins and the carpentry details that make a room feel finished.</p>
+              <ul><li>trim</li><li>doors &amp; windows</li><li>built-ins</li></ul>
+            </div>
+          </article>
+          <article class="scard reveal d3">
+            <div class="ph"><span class="num">06</span><img src="img/h6.jpg" alt="Hands measuring a board with a tape measure and pencil" loading="lazy" /></div>
+            <div class="body">
+              <h3>Repairs &amp; Honey-Dos</h3>
+              <p>Window replacement, the punch list, and all the small jobs other contractors won&rsquo;t bother with. No job is too small.</p>
+              <ul><li>repairs</li><li>windows</li><li>punch list</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="ruler" aria-hidden="true"></div>
+
+    <!-- WORK / GALLERY -->
+    <section class="block" id="work">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow reveal">Recent work</p>
+          <h2 class="reveal d1">Finished, not &ldquo;good enough&rdquo;</h2>
+        </div>
+        <div class="gallery reveal d1">
+          <a class="tall" href="#"><img src="img/h4.jpg" alt="Bright renovated kitchen with white cabinets and new flooring" loading="lazy" /></a>
+          <a class="wide" href="#"><img src="img/h5.jpg" alt="Finished kitchen with cherry cabinetry, granite and subway tile" loading="lazy" /></a>
+          <a href="#"><img src="img/h8.jpg" alt="Clean renovated bathroom with tub, vanity and tile floor" loading="lazy" /></a>
+          <a href="#"><img src="img/h9.jpg" alt="Tiled walk-in shower with glass doors" loading="lazy" /></a>
+          <a class="wide" href="#"><img src="img/h2.jpg" alt="Modern kitchen with island, skylight and hardwood floors" loading="lazy" /></a>
+          <a href="#"><img src="img/h10.jpg" alt="Modern white bathroom with herringbone floor" loading="lazy" /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="block" style="background:var(--paper2)">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow reveal">How it works</p>
+          <h2 class="reveal d1">Simple, start to finish</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal d1"><b>STEP 01</b><h3>Call Jeff</h3><p>Tell us what you&rsquo;re thinking. We&rsquo;ll talk through it in plain language.</p></div>
+          <div class="step reveal d1"><b>STEP 02</b><h3>Walk-through</h3><p>We come out, take real measurements, and scope the job honestly.</p></div>
+          <div class="step reveal d2"><b>STEP 03</b><h3>Clear quote</h3><p>A fair, up-front price with no surprises — on-time and on-budget.</p></div>
+          <div class="step reveal d2"><b>STEP 04</b><h3>We build it</h3><p>One crew, clean work, and a space you&rsquo;re proud to show off.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="block" id="reviews">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="eyebrow reveal">From the neighbors</p>
+          <h2 class="reveal d1">Recommended 101 times</h2>
+          <p class="reveal d2">Verified feedback from neighbors on Nextdoor.</p>
+        </div>
+        <div class="quotes">
+          <div class="quote reveal d1">
+            <div class="stars">★★★★★</div>
+            <p>On-time, on-budget work at reasonable prices — and high-quality results. Exactly what you hope for when you hire someone for your home.</p>
+            <div class="who"><span class="dot">N</span><div><strong>Verified neighbor</strong><br><small>Nextdoor recommendation</small></div></div>
+          </div>
+          <div class="quote reveal d2">
+            <div class="stars">★★★★★</div>
+            <p>Jeff&rsquo;s professionalism and great attitude stood out, and he completed everything in a timely manner. Would absolutely have him back.</p>
+            <div class="who"><span class="dot">N</span><div><strong>Verified neighbor</strong><br><small>Nextdoor recommendation</small></div></div>
+          </div>
+          <div class="quote reveal d3">
+            <div class="stars">★★★★★</div>
+            <p>One of 101 neighbors who&rsquo;ve recommended Neighborhood Handyman by name across the metro. Reliable, fair, and no job too small.</p>
+            <div class="who"><span class="dot">N</span><div><strong>101 recommendations</strong><br><small>Nextdoor, Twin Cities</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ruler" aria-hidden="true"></div>
+
+    <!-- CONTACT -->
+    <section class="block" id="contact">
+      <div class="wrap visit">
+        <div class="reveal">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Let&rsquo;s get your project moving.</h2>
+          <div class="row"><b>Owner</b><span>Jeff &mdash; Neighborhood Handyman LLC</span></div>
+          <div class="row"><b>Phone</b><span>(763) 294-8991</span></div>
+          <div class="row"><b>Serving</b><span>St. Paul, Maple Grove &amp; the Twin Cities metro</span></div>
+          <div class="row"><b>Best for</b><span>Remodels, flooring, tile, trim, repairs &mdash; no job too small</span></div>
+          <div class="cta">
+            <a class="btn" href="tel:+17632948991">Call (763) 294-8991</a>
+            <a class="btn ghost" style="color:var(--char);border-color:var(--char)" href="sms:+17632948991">Text us</a>
+          </div>
+        </div>
+        <div class="map reveal d1">
+          <iframe title="Neighborhood Handyman service area — Twin Cities metro" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-93.30%2C44.86%2C-92.92%2C45.10&layer=mapnik&marker=45.02%2C-93.09"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="block cta-band">
+      <div class="wrap">
+        <p class="eyebrow reveal">Ready when you are</p>
+        <h2 class="reveal d1">One call does it all.</h2>
+        <p class="reveal d2">Whether it&rsquo;s a leaky-faucet kind of day or a gut-the-kitchen kind of year, Jeff&rsquo;s crew is ready. Free, honest quotes across the Twin Cities.</p>
+        <div class="reveal d3" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn" href="tel:+17632948991">Call for a Quote</a>
+          <a class="btn ghost" href="sms:+17632948991">Send a Text</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="brand"><span class="mk">N</span><div><b style="color:#f4efe7">Neighborhood Handyman</b><small>LLC &middot; Twin Cities, MN</small></div></div>
+      <small>Owner Jeff &middot; <a href="tel:+17632948991">(763) 294-8991</a> &middot; Serving St. Paul, Maple Grove &amp; the metro</small>
+      <small>© 2026 Neighborhood Handyman LLC</small>
+    </div>
+  </footer>
+
+  <div class="demo-tag">Sample site · built for Neighborhood Handyman</div>
+
+<script>
+(function(){
+  "use strict";
+  var FRAME_COUNT = 143;
+  var framePath = function(n){ return "frames/f" + String(n).padStart(3, "0") + ".jpg"; };
+
+  var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canScrub = !reduce && window.matchMedia("(min-width:768px) and (pointer:fine)").matches;
+
+  var section = document.getElementById("scrollHero");
+  var stage   = document.getElementById("stage");
+  var canvas  = document.getElementById("frameCanvas");
+  var ctx     = canvas.getContext("2d", { alpha:false });
+  var video   = document.getElementById("heroVideo");
+  var loadNote= document.getElementById("loadNote");
+  var startCue= document.getElementById("startCue");
+  var scrubFill = document.getElementById("scrubFill");
+  var cap1 = document.getElementById("cap1"), cap2 = document.getElementById("cap2"),
+      cap3 = document.getElementById("cap3"), cap4 = document.getElementById("cap4");
+
+  function band(p,a,b){ var v=(p-a)/(b-a); return v<0?0:(v>1?1:v); }
+  function seg(p, inS,inE, outS,outE){ return Math.min(band(p,inS,inE), 1-band(p,outS,outE)); }
+
+  if(!canScrub){
+    document.body.classList.add("fallback");
+    cap1.style.opacity = 1;
+    if(reduce){ document.body.classList.add("show-poster"); }
+    else { document.body.classList.add("show-video"); video.play().catch(function(){}); }
+    if(loadNote) loadNote.style.display = "none";
+    if(startCue) startCue.style.opacity = 0;
+    initReveals(); initCounts(); initNav();
+    return;
+  }
+
+  var frames = [], loaded = 0, curIdx = -1, ticking = false;
+  function drawCover(img){
+    var cw=canvas.width, ch=canvas.height, iw=img.naturalWidth, ih=img.naturalHeight;
+    if(!iw||!ih) return;
+    var s=Math.max(cw/iw, ch/ih), w=iw*s, h=ih*s;
+    ctx.drawImage(img, (cw-w)/2, (ch-h)/2, w, h);
+  }
+  function drawNearest(idx){
+    var img = frames[idx];
+    if(img && img.complete && img.naturalWidth){ drawCover(img); return; }
+    for(var d=1; d<FRAME_COUNT; d++){
+      var a=frames[idx-d]; if(a && a.complete && a.naturalWidth){ drawCover(a); return; }
+      var b=frames[idx+d]; if(b && b.complete && b.naturalWidth){ drawCover(b); return; }
+    }
+  }
+  function sizeCanvas(){
+    var dpr = Math.min(window.devicePixelRatio||1, 1.5);
+    canvas.width  = Math.round(stage.clientWidth  * dpr);
+    canvas.height = Math.round(stage.clientHeight * dpr);
+    drawNearest(curIdx < 0 ? 0 : curIdx);
+  }
+  function choreograph(p){
+    cap1.style.opacity   = String(1 - band(p, 0.06, 0.15));
+    cap1.style.transform = "translateY(" + (-band(p,0,0.15)*90) + "px)";
+    cap2.style.opacity   = String(seg(p, 0.18,0.25, 0.34,0.41));
+    cap2.style.transform = "translate(" + (-(1-band(p,0.18,0.26))*60) + "px," + (-band(p,0.34,0.41)*50) + "px)";
+    cap3.style.opacity   = String(seg(p, 0.44,0.51, 0.60,0.67));
+    cap3.style.transform = "translateY(" + ((1-band(p,0.44,0.52))*70 - band(p,0.60,0.67)*60) + "px)";
+    cap4.style.opacity   = String(band(p, 0.72, 0.80));
+    cap4.style.transform = "translateY(" + ((1-band(p,0.72,0.82))*60) + "px)";
+    startCue.style.opacity = String(1 - band(p, 0.0, 0.05));
+    scrubFill.style.width  = (p*100) + "%";
+  }
+  function update(){
+    ticking = false;
+    var total = section.offsetHeight - window.innerHeight;
+    var p = total > 0 ? (window.scrollY - section.offsetTop) / total : 0;
+    p = p<0?0:(p>1?1:p);
+    var idx = Math.round(p * (FRAME_COUNT - 1));
+    if(idx !== curIdx){ curIdx = idx; drawNearest(idx); }
+    choreograph(p);
+    document.body.classList.toggle("nav-show", window.scrollY > window.innerHeight * 0.7);
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  function updateLoad(){
+    var pct = Math.round(loaded / FRAME_COUNT * 100);
+    if(loadNote){ loadNote.textContent = "Squaring up · " + pct + "%"; if(loaded >= FRAME_COUNT) loadNote.style.display = "none"; }
+  }
+  function preload(){
+    for(var i=0;i<FRAME_COUNT;i++){ (function(i){
+      var im = new Image(); im.decoding = "async";
+      im.onload = function(){ loaded++; updateLoad(); if(i===0){ drawNearest(0); } };
+      im.src = framePath(i+1); frames[i] = im;
+    })(i); }
+  }
+  sizeCanvas();
+  window.addEventListener("resize", function(){ sizeCanvas(); onScroll(); });
+  window.addEventListener("scroll", onScroll, { passive:true });
+  (window.requestIdleCallback || function(f){ setTimeout(f, 200); })(preload);
+  update();
+  window.__heroSeek = function(p){
+    var total = section.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: section.offsetTop + p*total, behavior:"instant" });
+    update();
+  };
+  initReveals(); initCounts(); initNav();
+
+  function initNav(){ document.body.classList.toggle("nav-show", window.scrollY > window.innerHeight * 0.7); }
+  function initReveals(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold:0.15, rootMargin:"0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  }
+  function initCounts(){
+    var counted = false;
+    function run(){
+      if(counted) return; counted = true;
+      document.querySelectorAll("[data-count]").forEach(function(el){
+        var target = parseInt(el.getAttribute("data-count"), 10), start = null, dur = 1500;
+        function step(ts){
+          if(!start) start = ts;
+          var t = Math.min((ts-start)/dur, 1), eased = 1 - Math.pow(1-t, 3);
+          el.textContent = Math.round(target*eased).toLocaleString();
+          if(t<1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    var wrap = document.querySelector(".stats");
+    if(wrap){ var sio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(); sio.disconnect(); } }); }, { threshold:0.4 }); sio.observe(wrap); }
+  }
+})();
+</script>
+</body>
+</html>
